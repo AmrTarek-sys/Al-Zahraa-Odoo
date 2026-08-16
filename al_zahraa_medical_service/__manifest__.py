@@ -1,0 +1,28 @@
+{
+    "name": "Al Zahraa Medical Devices",
+    "version": "19.0.1.0.0",
+    "summary": "Medical device inventory and maintenance history for Al Zahraa",
+    "category": "Operations/Maintenance",
+    "author": "Al Zahraa",
+    "license": "LGPL-3",
+    "depends": [
+        "base",
+        "mail",
+        "contacts",
+        "product",
+        "stock",
+        "sale_management",
+        "purchase",
+        "account",
+    ],
+    "data": [
+        "security/ir.model.access.csv",
+        "data/sequence.xml",
+        "views/device_views.xml",
+        "views/maintenance_ticket_views.xml",
+        "views/res_partner_views.xml",
+        "views/menu_views.xml",
+    ],
+    "application": True,
+    "installable": True,
+}

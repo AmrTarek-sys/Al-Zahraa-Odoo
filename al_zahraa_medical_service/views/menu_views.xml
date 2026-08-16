@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_az_root" name="Al Zahraa" sequence="10" web_icon="base,static/description/icon.png"/>
+    <menuitem id="menu_az_operations" name="Operations" parent="menu_az_root" sequence="10"/>
+    <menuitem id="menu_az_devices" name="Devices" parent="menu_az_operations"
+              action="action_az_medical_device" sequence="10"/>
+    <menuitem id="menu_az_maintenance" name="Maintenance" parent="menu_az_operations"
+              action="action_az_maintenance_ticket" sequence="20"/>
+
+    <menuitem id="menu_az_master" name="Master Data" parent="menu_az_root" sequence="20"/>
+    <menuitem id="menu_az_customers" name="Hospitals &amp; Customers" parent="menu_az_master"
+              action="contacts.action_contacts" sequence="10"/>
+
+    <menuitem id="menu_az_sales" name="Sales" parent="menu_az_root" sequence="30"/>
+    <menuitem id="menu_az_sale_orders" name="Sales Orders" parent="menu_az_sales"
+              action="sale.action_orders" sequence="10"/>
+
+    <menuitem id="menu_az_inventory" name="Inventory" parent="menu_az_root" sequence="40"/>
+    <menuitem id="menu_az_stock" name="Stock" parent="menu_az_inventory"
+              action="stock.action_picking_tree_all" sequence="10"/>
+
+    <menuitem id="menu_az_purchases" name="Purchases" parent="menu_az_root" sequence="50"/>
+    <menuitem id="menu_az_purchase_orders" name="Purchase Orders" parent="menu_az_purchases"
+              action="purchase.purchase_form_action" sequence="10"/>
+</odoo>

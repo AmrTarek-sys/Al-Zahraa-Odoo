@@ -1,0 +1,57 @@
+# Translation of Al Zahraa Medical Devices
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo 19.0\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Al Zahraa"
+msgstr "الزهراء"
+
+msgid "Medical Devices"
+msgstr "الأجهزة"
+
+msgid "Maintenance"
+msgstr "الصيانة"
+
+msgid "Device Name"
+msgstr "اسم الجهاز"
+
+msgid "Serial Number"
+msgstr "الرقم التسلسلي"
+
+msgid "Hospital / Customer"
+msgstr "المستشفى / العميل"
+
+msgid "Reported Fault"
+msgstr "العطل المبلغ عنه"
+
+msgid "Received Date"
+msgstr "تاريخ الاستلام"
+
+msgid "Under Maintenance"
+msgstr "تحت الصيانة"
+
+msgid "Ready for Delivery"
+msgstr "جاهز للتسليم"
+
+msgid "Delivered"
+msgstr "تم التسليم"
+
+msgid "Maintenance History"
+msgstr "سجل الصيانة"
+
+msgid "Parts / Consumables Used"
+msgstr "قطع الغيار / المستهلكات المستخدمة"
+
+msgid "Received by Company Employee"
+msgstr "استلم من الشركة"
+
+msgid "Delivered by Hospital Representative"
+msgstr "سلّم من المستشفى"
+
+msgid "Delivered by Company Employee"
+msgstr "سلّم من الشركة"
+
+msgid "Received by Hospital Representative"
+msgstr "استلم من المستشفى"

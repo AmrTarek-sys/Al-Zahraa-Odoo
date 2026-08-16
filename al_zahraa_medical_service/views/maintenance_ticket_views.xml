@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_az_maintenance_ticket_list" model="ir.ui.view">
+        <field name="name">az.maintenance.ticket.list</field>
+        <field name="model">az.maintenance.ticket</field>
+        <field name="arch" type="xml">
+            <list string="Maintenance Tickets">
+                <field name="name"/>
+                <field name="device_id"/>
+                <field name="serial_number"/>
+                <field name="hospital_id"/>
+                <field name="received_date"/>
+                <field name="status"/>
+                <field name="warranty_status"/>
+                <field name="final_cost"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_az_maintenance_ticket_form" model="ir.ui.view">
+        <field name="name">az.maintenance.ticket.form</field>
+        <field name="model">az.maintenance.ticket</field>
+        <field name="arch" type="xml">
+            <form string="Maintenance Ticket">
+                <header>
+                    <button name="action_start_inspection" type="object" string="Start Inspection"
+                            invisible="status != 'received'" class="btn-primary"/>
+                    <button name="action_start_repair" type="object" string="Start Repair"
+                            invisible="status not in ('received','inspection','waiting_parts')" class="btn-primary"/>
+                    <button name="action_ready" type="object" string="Ready for Delivery"
+                            invisible="status not in ('inspection','repair','waiting_parts')" class="btn-primary"/>
+                    <button name="action_deliver" type="object" string="Deliver"
+                            invisible="status != 'ready'" class="btn-primary"/>
+                    <field name="status" widget="statusbar"
+                           statusbar_visible="received,inspection,repair,waiting_parts,ready,delivered"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Device &amp; Customer">
+                            <field name="device_id"/>
+                            <field name="serial_number"/>
+                            <field name="hospital_id"/>
+                            <field name="warranty_status"/>
+                        </group>
+                        <group string="Receiving">
+                            <field name="received_date"/>
+                            <field name="company_received_by"/>
+                            <field name="hospital_delivered_by"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Fault &amp; Repair">
+                            <group>
+                                <field name="issue_description"/>
+                                <field name="inspection_result"/>
+                                <field name="technician_notes"/>
+                            </group>
+                        </page>
+                        <page string="Parts / Consumables">
+                            <field name="parts_line_ids">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="unit_price"/>
+                                    <field name="subtotal"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Delivery">
+                            <group>
+                                <field name="company_delivered_by"/>
+                                <field name="hospital_received_by"/>
+                                <field name="delivery_date"/>
+                            </group>
+                        </page>
+                        <page string="Costs &amp; Attachments">
+                            <group>
+                                <field name="currency_id"/>
+                                <field name="estimated_cost"/>
+                                <field name="final_cost"/>
+                                <field name="attachment_ids" widget="many2many_binary"/>
+                                <field name="notes"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_az_maintenance_ticket_search" model="ir.ui.view">
+        <field name="name">az.maintenance.ticket.search</field>
+        <field name="model">az.maintenance.ticket</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="device_id"/>
+                <field name="serial_number"/>
+                <field name="hospital_id"/>
+                <filter string="Open" name="open" domain="[('status','not in',('delivered','cancelled'))]"/>
+                <filter string="Delivered" name="delivered" domain="[('status','=','delivered')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Hospital" name="group_hospital" context="{'group_by':'hospital_id'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by':'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_az_maintenance_ticket" model="ir.actions.act_window">
+        <field name="name">Maintenance</field>
+        <field name="res_model">az.maintenance.ticket</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_az_maintenance_ticket_search"/>
+    </record>
+</odoo>

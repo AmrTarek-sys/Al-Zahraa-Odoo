@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_az_medical_device_user,az.medical.device user,model_az_medical_device,base.group_user,1,1,1,1
+access_az_maintenance_ticket_user,az.maintenance.ticket user,model_az_maintenance_ticket,base.group_user,1,1,1,1
+access_az_maintenance_part_user,az.maintenance.part user,model_az_maintenance_part,base.group_user,1,1,1,1
