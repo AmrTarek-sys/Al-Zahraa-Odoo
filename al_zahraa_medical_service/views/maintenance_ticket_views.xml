@@ -103,7 +103,7 @@
                 <field name="hospital_id"/>
                 <filter string="Open" name="open" domain="[('status','not in',('delivered','cancelled'))]"/>
                 <filter string="Delivered" name="delivered" domain="[('status','=','delivered')]"/>
-                <group expand="0" string="Group By">
+                <group>
                     <filter string="Hospital" name="group_hospital" context="{'group_by':'hospital_id'}"/>
                     <filter string="Status" name="group_status" context="{'group_by':'status'}"/>
                 </group>
